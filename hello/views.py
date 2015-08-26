@@ -1,4 +1,4 @@
 from django import http
 
 def home(request):
-    return http.HttpResponse('Hi pyPeter, Hello World!')
+    return http.HttpResponse('This the project pypetertest2, Hello World!')
