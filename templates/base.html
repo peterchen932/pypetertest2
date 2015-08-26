@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-TW">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    {% block cssfile %}
+    <link rel="stylesheet" href="/static/css/carousel.css" />
+    {% endblock %}
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/js/bin.js"></script>
+    <link rel="shortcut icon" href="/static/pic/favicon.ico">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="//v3.bootcss.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <meta name="keywords" content="{{ keywords }}" />
+    <meta name="description" content="{{ desc }}" />
+    <title>Peter Django測試站 - {% block title %}{% endblock %}</title>
+</head>
+<body role="document">
+<!-- page head -->
+{% block head %}
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Peter Django測試站</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Peter Django測試站</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="{{ home_active }}"><a href="/">首页-Bootstrap</a></li>
+                <li class="dropdown {{ user_active }}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">功能測試
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/login/database">資料庫測試</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/login/file">檔案測試</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/admin">管理員測試</a></li>
+                    </ul>
+                </li>
+                <li class="{{ msg_active }}"><a href="/forum/message">消息中心</a></li>
+            </ul>
+            <form class="navbar-form navbar-right" action="/login/login" method="post">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="User Name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="passwd" placeholder="Password" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success" >登录</button>
+                <a class="btn btn-success" href="/login/register">注册</a>
+            </form>
+        </div><!--/.nav-collapse -->
+    </div><!--/.container-->
+</nav>
+{% endblock %}
+
+<div id="content" class="container" role="main">
+
+    <!-- page body -->
+    {% block body %}
+        <h1>index</h1>
+    {% endblock %}
+
+</div><!-- main end -->
+
+<!-- page foot -->
+{% block foot %}
+<footer id="footer" >
+    <hr>
+    <p align="right">2015 &copy;  <a href="{{ web_url }}" >{{ web_name }}</a> Powered By Django
+	<br/>
+	Email:peterchen932@gmail.com
+    </p>
+</footer>
+{% endblock %}
+
+</body>
+</html>
